@@ -22,42 +22,44 @@
                 ">Hub</span>
                 </h1>
                 <div class="nav-wrapper-top">
-                    <nav>
+                    <button id="menuToggle" class="menu-toggle">
+                        <img src="media/icon/menu.svg" alt="" width="32" height="32">
+                    </button>
+                    <nav id="navTop">
                         <ul>
-                            <li><a href="#">HOME</a></li>
-                            <li><a href="#">VIDEOS</a></li>
-                            <li><a href="#">CATEGORIES</a></li>
-                            <li><a href="#">COMMUNITY</a></li>
+                            <li class="nav-li"><a href="#">HOME</a></li>
+                            <li class="nav-li"><a href="#">VIDEOS</a></li>
+                            <li class="nav-li"><a href="#">CATEGORIES</a></li>
+                            <li class="nav-li"><a href="#">COMMUNITY</a></li>
+                            <li class="search-bar">
+                                <a href="#">
+                                    <span style="padding-right: 0.4rem;">
+                                        <img id="search-icon" src="media/icon/search.svg" alt="Search Icon" width="16"
+                                            height="16" style="filter: invert(1);">
+                                    </span>
+                                    SEARCH
+                                </a>
+                            </li>
                         </ul>
                     </nav>
-                    <div class="search-bar">
-                        <button type="submit">
-                            <span style="padding-right: 0.4rem;">
-                                <img src="media/icon/search.svg" alt="Search Icon" width="16" height="16"
-                                    style="filter: invert(1);">
-                            </span>
-                            SEARCH
-                        </button>
-                    </div>
                 </div>
             </div>
 
             <div class="nav-wrapper-bottom">
-                <nav>
+                <nav id="navBottom">
                     <ul>
-                        <li><a href="#">ALL</a></li>
-                        <li><a href="#">BIG</a></li>
-                        <li><a href="#">MAHALIBAON</a></li>
-                        <li><a href="#">HORNALDO</a></li>
+                        <li class="nav-li"><a href="#">ALL</a></li>
+                        <li class="nav-li"><a href="#">BIG</a></li>
+                        <li class="nav-li"><a href="#">MAHALIBAON</a></li>
+                        <li class="nav-li"><a href="#">HORNALDO</a></li>
+                        <li class="upload-button">
+                            <a href="#">UPLOAD</a>
+                        </li>
                     </ul>
                 </nav>
-                <div class="upload-button">
-                    <button type="button">
-                        UPLOAD
-                    </button>
-                </div>
             </div>
         </div>
+
         <div class="grid">
             <div class="grid-item">
                 <img src="media/banana01.jpg" alt="Banana 01">
@@ -91,6 +93,22 @@
             <img src="media/icon/github-mark.svg" alt="GitHub" width="32" height="32" title="GitHub Repository">
         </a>
     </div>
+
+    <script>
+        const toggleButton = document.getElementById('menuToggle');
+        const navTop = document.querySelector('.nav-wrapper-top nav');
+
+        toggleButton.addEventListener('click', () => {
+            navTop.classList.toggle('open');
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!toggleButton.contains(event.target) && !navTop.contains(event.target)) {
+                navTop.classList.remove('open');
+            }
+        });
+    </script>
+
 </body>
 
 </html>
